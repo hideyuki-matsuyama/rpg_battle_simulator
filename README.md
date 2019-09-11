@@ -1,5 +1,7 @@
 # README
 
+<img alt="Build" src="https://github.com/hideyuki-matsuyama/rpg_battle_simulator/workflows/Build/badge.svg">
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
