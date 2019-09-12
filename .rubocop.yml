@@ -10,6 +10,7 @@ AllCops:
   Exclude:
     - db/schema.rb
     - db/migrate/**
+    - lib/tasks/**
     - vendor/bundle/**/*
 Style/AsciiComments:
   Enabled: false
