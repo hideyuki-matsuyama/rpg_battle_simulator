@@ -1,5 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Adventurer, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'おれおれ' do
+    subject(:ore) { build(:adventurer) }
+
+    it { is_expected.to be_present }
+    it { expect(ore.name).to eq 'おれおれ' }
+  end
 end
