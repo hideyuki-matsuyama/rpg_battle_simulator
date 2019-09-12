@@ -8,6 +8,7 @@ require:
 
 AllCops:
   Exclude:
+    - db/schema.rb
     - db/migrate/**
     - vendor/bundle/**/*
 Style/AsciiComments:
