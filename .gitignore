@@ -20,6 +20,7 @@
 /public/assets
 .byebug_history
 /vendor/bundle
+coverage
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
