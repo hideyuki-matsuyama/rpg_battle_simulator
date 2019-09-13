@@ -16,3 +16,7 @@ Style/AsciiComments:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Naming/AsciiIdentifiers:
+  Enabled: false
+Naming/MethodName:
+  Enabled: false

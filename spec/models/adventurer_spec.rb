@@ -19,19 +19,28 @@
 require 'rails_helper'
 
 RSpec.describe Adventurer, type: :model do
-  describe 'validates' do
-    subject(:ore) { create(:adventurer) }
+  subject(:冒険者) { create(:adventurer) }
 
-    it 'nameは必須' do
-      ore.name = ''
-      expect(ore.valid?).to eq false
+  describe 'validates' do
+    it 'なまえは必須' do
+      冒険者.なまえ = ''
+      expect(冒険者.valid?).to eq false
     end
   end
 
-  describe 'おれおれ' do
-    subject(:ore) { build(:adventurer) }
+  describe '#こうげき力' do
+    before { 冒険者.ちから = 60 }
 
-    it { is_expected.to be_present }
-    it { expect(ore.name).to eq 'おれおれ' }
+    it 'ちからと同じ' do
+      expect(冒険者.こうげき力).to eq 60
+    end
+  end
+
+  describe '#しゅび力' do
+    before { 冒険者.みのまもり = 55 }
+
+    it 'みのまもりと同じ' do
+      expect(冒険者.しゅび力).to eq 55
+    end
   end
 end

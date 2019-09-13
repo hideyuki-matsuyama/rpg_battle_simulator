@@ -18,5 +18,23 @@
 
 # 冒険者
 class Adventurer < ApplicationRecord
-  validates :name, presence: true
+  alias_attribute :なまえ, :name
+  alias_attribute :ちから, :strength
+  alias_attribute :すばやさ, :agility
+  alias_attribute :みのまもり, :toughness
+  alias_attribute :かしこさ, :intelligence
+  alias_attribute :HP, :avoidance_power
+  alias_attribute :MP, :concentration_power
+  alias_attribute :さいだいHP, :max_avoidance_power
+  alias_attribute :さいだいMP, :max_concentration_power
+
+  validates :なまえ, presence: true
+
+  def こうげき力
+    ちから
+  end
+
+  def しゅび力
+    みのまもり
+  end
 end
