@@ -22,11 +22,12 @@ jobs:
         bundle exec rake db:schema:load
       env:
         RAILS_ENV: test
-    - name: Run rubocop
-      run: bundle exec rubocop
+
+    - name: Run RuboCop
+      run: bin/rails check:rubocop
+
     - name: Run Rails Best Practices
-      run: bundle exec rails_best_practices .
+      run: bin/rails check:rails_best_practices
+
     - name: Run RSpec
-      run: bundle exec rspec
-      env:
-        RAILS_ENV: test
+      run: bin/rails check:rspec
