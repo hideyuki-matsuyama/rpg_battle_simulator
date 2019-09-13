@@ -24,6 +24,8 @@ jobs:
         RAILS_ENV: test
     - name: Run rubocop
       run: bundle exec rubocop
+    - name: Run Rails Best Practices
+      run: bundle exec rails_best_practices .
     - name: Run RSpec
       run: bundle exec rspec
       env:
