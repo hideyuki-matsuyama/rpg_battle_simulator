@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_13_062736) do
+ActiveRecord::Schema.define(version: 2019_09_13_064844) do
 
-  create_table "adventurers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
+  create_table "creatures", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin", force: :cascade do |t|
+    t.string "type", null: false
     t.string "name", null: false
     t.integer "strength", default: 0, null: false
     t.integer "agility", default: 0, null: false
@@ -24,20 +25,7 @@ ActiveRecord::Schema.define(version: 2019_09_13_062736) do
     t.integer "max_concentration_power", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "monsters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "strength", default: 0, null: false
-    t.integer "agility", default: 0, null: false
-    t.integer "toughness", default: 0, null: false
-    t.integer "intelligence", default: 0, null: false
-    t.integer "avoidance", default: 0, null: false
-    t.integer "concentration", default: 0, null: false
-    t.integer "max_avoidance", default: 0, null: false
-    t.integer "max_concentration", default: 0, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_creatures_on_type"
   end
 
 end

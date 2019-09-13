@@ -21,6 +21,8 @@
 #  index_creatures_on_type  (type)
 #
 
-# 冒険者
-class Adventurer < Creature
+require 'rails_helper'
+
+RSpec.describe Creature, type: :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end

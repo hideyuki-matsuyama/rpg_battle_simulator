@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: adventurers
+# Table name: creatures
 #
 #  id                      :bigint           not null, primary key
 #  agility                 :integer          default(0), not null
@@ -12,35 +12,21 @@
 #  name                    :string(255)      not null
 #  strength                :integer          default(0), not null
 #  toughness               :integer          default(0), not null
+#  type                    :string(255)      not null
 #  created_at              :datetime         not null
 #  updated_at              :datetime         not null
+#
+# Indexes
+#
+#  index_creatures_on_type  (type)
 #
 
 require 'rails_helper'
 
 RSpec.describe Adventurer, type: :model do
-  subject(:冒険者) { create(:adventurer) }
+  describe '基本パラメータ' do
+    let(:生き物) { create(:adventurer) }
 
-  describe 'validates' do
-    it 'なまえは必須' do
-      冒険者.なまえ = ''
-      expect(冒険者.valid?).to eq false
-    end
-  end
-
-  describe '#こうげき力' do
-    before { 冒険者.ちから = 60 }
-
-    it 'ちからと同じ' do
-      expect(冒険者.こうげき力).to eq 60
-    end
-  end
-
-  describe '#しゅび力' do
-    before { 冒険者.みのまもり = 55 }
-
-    it 'みのまもりと同じ' do
-      expect(冒険者.しゅび力).to eq 55
-    end
+    it_behaves_like '基本パラメータ'
   end
 end
