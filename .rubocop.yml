@@ -8,6 +8,7 @@ require:
 
 AllCops:
   Exclude:
+    - bin/**
     - db/schema.rb
     - db/migrate/**
     - lib/tasks/**
