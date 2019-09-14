@@ -1,11 +1,5 @@
 require 'rails_helper'
 
 RSpec.describe ApplicationHelper, type: :module do
-  let(:helper) { Struct.new(:helper) { extend ApplicationHelper } }
-
-  describe '.title' do
-    subject(:ページタイトル) { helper.title }
-
-    it { is_expected.to eq 'ククク・・・' }
-  end
+  pending "add some examples to (or delete) #{__FILE__}"
 end

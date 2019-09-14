@@ -1,3 +1,11 @@
+if ENV['RAILS_ENV'] == 'test'
+  require 'simplecov'
+  SimpleCov.start 'rails' do
+    add_group 'Services', 'app/services'
+  end
+  puts 'required simplecov'
+end
+
 # frozen_string_literal: true
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
@@ -66,12 +74,4 @@ RSpec.configure do |config|
       driven_by :selenium_chrome_headless, screen_size: [1600, 1600]
     end
   end
-end
-
-if ENV['RAILS_ENV'] == 'test'
-  require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_group 'Services', 'app/services'
-  end
-  puts 'required simplecov'
 end
