@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe BattleSimulationService, type: :service do
   describe '#call' do
-    subject(:たたかう) { instance.call }
+    subject(:たたかう) { バトルシミュレーター.call }
 
-    let(:instance) { described_class.new }
+    let(:バトルシミュレーター) { described_class.new }
 
     before do
       create(:ハッサン, :レベル20)
@@ -15,9 +15,14 @@ RSpec.describe BattleSimulationService, type: :service do
       create(:メタルスライム)
     end
 
-    it '素早い順で攻撃する' do
-      expect(instance).to receive(:こうげき).and_call_original.exactly(6).times
+    it '素早い子から順番に攻撃する' do
+      expect(バトルシミュレーター).to receive(:こうげき).and_call_original.exactly(6).times
       expect(たたかう.map(&:なまえ)).to eq %w[メタルスライム テリー ミレーユ バーバラ ハッサン きりさきピエロ]
+    end
+
+    it 'saveに失敗したらrollbackされること' do
+      expect_any_instance_of(Adventurer).to receive(:valid?).and_return false
+      expect { begin たたかう; rescue; end }.not_to change { Creature.all.select(Creature.column_names).map(&:inspect) }
     end
   end
 end

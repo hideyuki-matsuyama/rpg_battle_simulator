@@ -18,6 +18,7 @@ class AttackService
   private
 
   def 与えるダメージ
+    # FIXME: 🐛負の値になると敵にも優しくなります
     する子.こうげき力 / 2 - される子.しゅび力 / 4
   end
 
