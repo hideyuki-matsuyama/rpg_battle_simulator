@@ -58,7 +58,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara'
   gem 'simplecov', require: false
+  gem 'webdrivers'
 end
 
 gem 'rails_best_practices'
