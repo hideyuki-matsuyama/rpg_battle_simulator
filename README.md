@@ -18,7 +18,8 @@ bundle && bin/rails db:{create,migrate,seed}
 ## 静的コードチェックとテストコードの実行
 
 ```bash
-bin/rails check:all
+bin/rails check:all   # 全チェック
+bin/rspec -fd         # 仕様確認
 ```
 
 - System Specに失敗した際のスクリーンショットが `tmp/screenshots` に出力されます
