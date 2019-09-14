@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :adventurer do
-    name { 'トンヌラ' }
+    なまえ { 'トンヌラ' }
   end
 end
