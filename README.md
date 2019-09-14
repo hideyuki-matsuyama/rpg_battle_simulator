@@ -23,6 +23,9 @@ Things you may want to cover:
 bin/rails check:all
 ```
 
+- System Specに失敗した際のスクリーンショットが `tmp/screenshots` に出力されます
+- code coverageの測定結果が `coverage/index.html` に出力されます
+
 ### Services (job queues, cache servers, search engines, etc.)
 
 ### Deployment instructions
