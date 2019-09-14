@@ -2,22 +2,20 @@
 
 <img alt="Build" src="https://github.com/hideyuki-matsuyama/rpg_battle_simulator/workflows/Build/badge.svg">
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 環境
 
-Things you may want to cover:
+- ruby 2.6.3
+- Rails 5.2.3
+- RSpec 3.8
+- MySQL 5.7
 
-### Ruby version
+## はじめ方
 
-### System dependencies
+```bash
+bundle && bin/rails db:{create,migrate,seed}
+```
 
-### Configuration
-
-### Database creation
-
-### Database initialization
-
-### How to run the test suite
+## 静的コードチェックとテストコードの実行
 
 ```bash
 bin/rails check:all
@@ -26,8 +24,6 @@ bin/rails check:all
 - System Specに失敗した際のスクリーンショットが `tmp/screenshots` に出力されます
 - code coverageの測定結果が `coverage/index.html` に出力されます
 
-### Services (job queues, cache servers, search engines, etc.)
+## License
 
-### Deployment instructions
-
-### ...
+MIT
