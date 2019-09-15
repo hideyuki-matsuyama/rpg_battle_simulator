@@ -3,7 +3,9 @@ class AttackService < BaseService
   attr_accessor :する子, :される子
 
   def call
-    ぬわーーっっ！！
+    return unless する子.いきてる？ && される子.いきてる？
+
+    ダメージをくらわす
   end
 
   def initialize(する子, される子)
@@ -22,13 +24,13 @@ class AttackService < BaseService
     与ダメ.positive? ? 与ダメ : 0
   end
 
-  def ぬわーーっっ！！
+  def ダメージをくらわす
     メッセージ出力 "#{する子.なまえ}の こうげき！"
     if 与えるダメージ.zero?
       メッセージ出力 "#{される子.なまえ}に ダメージを あたえられない！"
     else
       メッセージ出力 "#{される子.なまえ}に #{与えるダメージ}の ダメージ！！"
     end
-    される子.HP = される子.HP - 与えるダメージ
+    される子.いてっ！ 与えるダメージ
   end
 end

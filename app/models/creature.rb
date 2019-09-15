@@ -34,6 +34,21 @@ class Creature < ApplicationRecord
   alias_attribute :さいだいMP, :max_concentration_power
 
   validates :なまえ, presence: true
+  validates :HP, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: :さいだいHP }
+  validates :MP, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: :さいだいMP }
+
+  def いてっ！(other)
+    予測HP = self.HP - other
+    self.HP = 予測HP <= 0 ? 0 : 予測HP
+  end
+
+  def いきてる？
+    !しぼんぬ？
+  end
+
+  def しぼんぬ？
+    self.HP.zero?
+  end
 
   def こうげき力
     ちから
