@@ -1,6 +1,6 @@
 ---
 name: Chore
-about: あチョアー！
+about: "⚙️あチョアー！"
 title: "⚙️"
 labels: ''
 assignees: hideyuki-matsuyama
