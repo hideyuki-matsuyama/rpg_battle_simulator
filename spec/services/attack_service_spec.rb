@@ -10,6 +10,13 @@ RSpec.describe AttackService, type: :service do
     it '攻撃される子がダメージを受ける' do
       expect { こうげき }.to change(される子, :HP).from(100).to(10)
     end
+    it 'ダメージを与えた旨のメッセージが出力される', issue: '#10' do
+      こうげきメッセ = 'ハッサンの こうげき！'
+      しゅびメッセ = 'テリーに 90の ダメージ！！'
+      expect_any_instance_of(described_class).to receive(:メッセージ出力).with(こうげきメッセ).once
+      expect_any_instance_of(described_class).to receive(:メッセージ出力).with(しゅびメッセ).once
+      こうげき
+    end
 
     context '与えるダメージがマイナス', issue: '#1' do
       let(:する子) { create(:メタルスライム) }
@@ -17,6 +24,13 @@ RSpec.describe AttackService, type: :service do
 
       it '攻撃される子がダメージを受けない' do
         expect { こうげき }.not_to change(される子, :HP)
+      end
+      it 'ダメージを与えられなかった旨のメッセージが出力される', issue: '#10' do
+        こうげきメッセ = 'メタルスライムの こうげき！'
+        しゅびメッセ = 'ミレーユに ダメージを あたえられない！'
+        expect_any_instance_of(described_class).to receive(:メッセージ出力).with(こうげきメッセ).once
+        expect_any_instance_of(described_class).to receive(:メッセージ出力).with(しゅびメッセ).once
+        こうげき
       end
     end
   end

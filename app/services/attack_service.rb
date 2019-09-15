@@ -1,5 +1,5 @@
 # こうげき
-class AttackService
+class AttackService < BaseService
   attr_accessor :する子, :される子
 
   def call
@@ -23,6 +23,12 @@ class AttackService
   end
 
   def ぬわーーっっ！！
+    メッセージ出力 "#{する子.なまえ}の こうげき！"
+    if 与えるダメージ.zero?
+      メッセージ出力 "#{される子.なまえ}に ダメージを あたえられない！"
+    else
+      メッセージ出力 "#{される子.なまえ}に #{与えるダメージ}の ダメージ！！"
+    end
     される子.HP = される子.HP - 与えるダメージ
   end
 end

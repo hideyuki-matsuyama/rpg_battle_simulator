@@ -43,6 +43,9 @@ group :development, :test do
   gem 'rubocop-performance'
   gem 'rubocop-rails'
   gem 'rubocop-rspec'
+
+  gem 'debase'
+  gem 'ruby-debug-ide'
 end
 
 group :development do
