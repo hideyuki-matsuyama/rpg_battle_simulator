@@ -1,5 +1,5 @@
 # こうげき
-class AttackService
+class AttackService < BaseService
   attr_accessor :する子, :される子
 
   def call

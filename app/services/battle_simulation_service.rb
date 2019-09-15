@@ -1,5 +1,5 @@
 # 戦闘
-class BattleSimulationService
+class BattleSimulationService < BaseService
   def call
     ActiveRecord::Base.transaction do
       すばやさ降順でソート.each do |する子|
