@@ -15,6 +15,14 @@ RSpec.describe BattleSimulationService, type: :service do
       create(:メタルスライム)
     end
 
+    it '現れたモンスターの名前がメッセージとして出力される', issue: '#10' do
+      モンス_1 = 'きりさきピエロが あらわれた！'
+      モンス_2 = 'メタルスライムが あらわれた！'
+      expect_any_instance_of(described_class).to receive(:メッセージ出力).with(モンス_1).once
+      expect_any_instance_of(described_class).to receive(:メッセージ出力).with(モンス_2).once
+      たたかう
+    end
+
     it '素早い子から順番に攻撃する' do
       expect(バトルシミュレーター).to receive(:こうげき).and_call_original.exactly(6).times
       expect(たたかう.map(&:なまえ)).to eq %w[メタルスライム テリー ミレーユ バーバラ ハッサン きりさきピエロ]

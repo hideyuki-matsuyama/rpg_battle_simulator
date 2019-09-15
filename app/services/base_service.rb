@@ -1,7 +1,7 @@
 # 戦闘
 class BaseService
   def call
-    NotImplementedError
+    raise NotImplementedError
   end
 
   private

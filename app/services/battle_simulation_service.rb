@@ -2,6 +2,7 @@
 class BattleSimulationService < BaseService
   def call
     ActiveRecord::Base.transaction do
+      エンカウント
       すばやさ降順でソート.each do |する子|
         される子 = (すばやさ降順でソート - パーティーメンバー - [する子]).sample
         こうげき(する子, される子)
@@ -16,8 +17,14 @@ class BattleSimulationService < BaseService
 
   private
 
+  def エンカウント
+    モンスターの群れ.each do |モンス|
+      メッセージ出力 "#{モンス.なまえ}が あらわれた！"
+    end
+  end
+
   def すばやさ降順でソート
-    (パーティーメンバー + モンスターの群れ).sort_by(&:すばやさ).reverse
+    みなさん.sort_by(&:すばやさ).reverse
   end
 
   def こうげき(する子, される子)
@@ -30,5 +37,9 @@ class BattleSimulationService < BaseService
 
   def モンスターの群れ
     @モンスターの群れ ||= Monster.all
+  end
+
+  def みなさん
+    (パーティーメンバー + モンスターの群れ)
   end
 end
