@@ -53,3 +53,5 @@ Style/RescueStandardError:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
+RSpec/ContextWording:
+  Enabled: false
