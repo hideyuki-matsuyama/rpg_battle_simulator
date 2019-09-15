@@ -41,9 +41,14 @@ Metrics/MethodLength:
   Max: 20
 RSpec/AnyInstance:
   Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+RSpec/MessageChain:
+  Enabled: false
 Metrics/BlockLength:
   Exclude:
     - 'spec/factories/**/*'
+    - 'spec/**/*'
 Lint/HandleExceptions:
   Exclude:
     - 'spec/**/*'
