@@ -23,6 +23,38 @@
 
 require 'rails_helper'
 
-RSpec.describe Creature, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe Creature, type: :model, issue: '#3' do
+  let(:サンチョ) { create(:adventurer, HP: 50, さいだいHP: 50) }
+
+  describe '#いてっ！' do
+    it { expect { サンチョ.いてっ！(30) }.to change(サンチョ, :HP).from(50).to(20) }
+
+    context '坊ちゃんからオーバーキル' do
+      before { サンチョ.いてっ！(9999) }
+
+      it 'HPは0' do
+        expect(サンチョ.HP).to eq 0
+      end
+    end
+  end
+
+  describe '#いきてる？' do
+    it { expect(サンチョ.いきてる？).to eq true }
+
+    context 'HP == 0' do
+      before { サンチョ.HP = 0 }
+
+      it { expect(サンチョ.いきてる？).to eq false }
+    end
+  end
+
+  describe '#しぼんぬ？' do
+    it { expect(サンチョ.しぼんぬ？).to eq false }
+
+    context 'HP == 0' do
+      before { サンチョ.HP = 0 }
+
+      it { expect(サンチョ.しぼんぬ？).to eq true }
+    end
+  end
 end

@@ -24,7 +24,11 @@ class BattleSimulationService < BaseService
   end
 
   def すばやさ降順でソート
-    みなさん.sort_by(&:すばやさ).reverse
+    いきてるみなさん.sort_by(&:すばやさ).reverse
+  end
+
+  def いきてるみなさん
+    みなさん.select(&:いきてる？)
   end
 
   def こうげき(する子, される子)
