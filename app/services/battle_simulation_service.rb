@@ -40,6 +40,6 @@ class BattleSimulationService < BaseService
   end
 
   def みなさん
-    (パーティーメンバー + モンスターの群れ)
+    パーティーメンバー + モンスターの群れ
   end
 end
