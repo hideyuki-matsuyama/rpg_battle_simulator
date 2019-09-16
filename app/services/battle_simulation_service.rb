@@ -18,17 +18,13 @@ class BattleSimulationService < BaseService
   private
 
   def エンカウント
-    モンスターの群れ.each do |モンス|
+    現れたモンスターたち.each do |モンス|
       メッセージ出力 "#{モンス.なまえ}が あらわれた！"
     end
   end
 
   def すばやさ降順でソート
-    いきてるみなさん.sort_by(&:すばやさ).reverse
-  end
-
-  def いきてるみなさん
-    みなさん.select(&:いきてる？)
+    みなさん.生きている.素早い順
   end
 
   def こうげき(する子, される子)
@@ -36,14 +32,14 @@ class BattleSimulationService < BaseService
   end
 
   def パーティーメンバー
-    @パーティーメンバー ||= Adventurer.all
+    @パーティーメンバー ||= Adventurer.冒険者たち.生きている
   end
 
-  def モンスターの群れ
-    @モンスターの群れ ||= Monster.all
+  def 現れたモンスターたち
+    @現れたモンスターたち ||= Monster.この辺に生息している
   end
 
   def みなさん
-    パーティーメンバー + モンスターの群れ
+    Creature.where(id: パーティーメンバー.ids + 現れたモンスターたち.ids)
   end
 end
