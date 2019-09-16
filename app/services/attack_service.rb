@@ -13,10 +13,6 @@ class AttackService < BaseService
     @される子 = される子
   end
 
-  def self.ヌワス
-    'パパーーっっ！！'
-  end
-
   private
 
   def 与えるダメージ

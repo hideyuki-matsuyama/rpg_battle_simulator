@@ -23,4 +23,7 @@
 
 # 冒険者
 class Adventurer < Creature
+  def self.ヌワス
+    'パパーーっっ！！'
+  end
 end

@@ -34,10 +34,4 @@ RSpec.describe AttackService, type: :service do
       end
     end
   end
-
-  describe '.ヌワス' do
-    subject { described_class.ヌワス }
-
-    it { is_expected.to eq 'パパーーっっ！！' }
-  end
 end
