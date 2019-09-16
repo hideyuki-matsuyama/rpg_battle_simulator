@@ -29,10 +29,4 @@ RSpec.describe Adventurer, type: :model do
 
     it_behaves_like '基本パラメータ'
   end
-
-  describe '.ヌワス' do
-    subject { described_class.ヌワス }
-
-    it { is_expected.to eq 'パパーーっっ！！' }
-  end
 end
