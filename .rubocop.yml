@@ -13,6 +13,7 @@ AllCops:
     - db/schema.rb
     - db/migrate/**
     - lib/tasks/**
+    - spec/factories/**/*
     - vendor/bundle/**/*
 Style/AsciiComments:
   Enabled: false
@@ -59,3 +60,5 @@ Style/RescueStandardError:
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - 'spec/**/*'
+RSpec/ExampleLength:
+  Enabled: false

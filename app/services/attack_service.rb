@@ -5,16 +5,16 @@ class AttackService < BaseService
   def call
     return unless する子.いきてる？ && される子.いきてる？
 
-    ダメージをくらわす
+    begin
+      ダメージをくらわす
+    rescue Status::URRRAAHH => e
+      メッセージ出力 e.message
+    end
   end
 
   def initialize(する子, される子)
     @する子 = する子
     @される子 = される子
-  end
-
-  def self.ヌワス
-    'パパーーっっ！！'
   end
 
   private
