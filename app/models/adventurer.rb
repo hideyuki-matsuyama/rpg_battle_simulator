@@ -23,4 +23,8 @@
 
 # 冒険者
 class Adventurer < Creature
+  def いてっ！(other)
+    super
+    raise Status::URRRAAHH, "#{なまえ}は しんでしまった！" if しぼんぬ？
+  end
 end

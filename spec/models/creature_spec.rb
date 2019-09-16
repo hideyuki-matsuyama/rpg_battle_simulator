@@ -24,15 +24,16 @@
 require 'rails_helper'
 
 RSpec.describe Creature, type: :model, issue: '#3' do
-  let(:サンチョ) { create(:adventurer, HP: 50, さいだいHP: 50) }
+  let(:サンチョ) { create(:adventurer, なまえ: 'サンチョ', HP: 50, さいだいHP: 50) }
 
   describe '#いてっ！' do
     it { expect { サンチョ.いてっ！(30) }.to change(サンチョ, :HP).from(50).to(20) }
 
-    context '坊ちゃんからオーバーキル' do
-      before { サンチョ.いてっ！(9999) }
+    context '坊ちゃんからオーバーキル', issue: '#21' do
+      subject(:サンチョ被弾) { サンチョ.いてっ！(9999) }
 
       it 'HPは0' do
+        expect { サンチョ被弾 }.to raise_error Status::URRRAAHH
         expect(サンチョ.HP).to eq 0
       end
     end
