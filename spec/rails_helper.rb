@@ -2,6 +2,7 @@ if ENV['RAILS_ENV'] == 'test'
   require 'simplecov'
   SimpleCov.start 'rails' do
     add_group 'Services', 'app/services'
+    add_group 'Libraries', 'app/lib'
   end
   puts 'required simplecov'
 end

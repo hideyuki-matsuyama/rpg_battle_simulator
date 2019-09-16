@@ -23,4 +23,8 @@
 
 # モンスター
 class Monster < Creature
+  def いてっ！(other)
+    super
+    raise Status::URRRAAHH, "#{なまえ}を たおした！" if しぼんぬ？
+  end
 end
