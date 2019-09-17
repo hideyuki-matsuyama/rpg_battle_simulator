@@ -2,5 +2,9 @@
 
 module Status
   # しぼんぬ
-  class URRRAAHH < StandardError; end
+  class URRRAAHH < StandardError
+    def ぬわーーっっ！！
+      message
+    end
+  end
 end

@@ -8,7 +8,7 @@ class AttackService < BaseService
     begin
       ダメージをくらわす
     rescue Status::URRRAAHH => e
-      メッセージ出力 e.message
+      メッセージ出力 e.ぬわーーっっ！！
     end
   end
 
