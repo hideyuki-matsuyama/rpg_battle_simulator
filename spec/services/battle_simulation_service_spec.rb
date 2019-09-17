@@ -35,24 +35,25 @@ RSpec.describe BattleSimulationService, type: :service do
   end
 
   describe '#さあて、どいつからかたづけてやるかな・・・', issue: '#7' do
-    subject(:チミに決めた！) { described_class.new.send(:さあて、どいつからかたづけてやるかな・・・, する子) }
-
-    let(:する子) { create(:ハッサン, :レベル20) }
+    subject(:チミに決めた！) { described_class.new.send(:さあて、どいつからかたづけてやるかな・・・, create(:ハッサン, :レベル20)) }
 
     before do
       create(:きりさきピエロ, HP: 76)
       create(:スライムベス, HP: 12)
       create(:メタルスライム, HP: 5)
+      allow_any_instance_of(AttackService).to receive(:与えるダメージ).and_return(与ダメ予想値)
     end
 
+    let(:与ダメ予想値) { 3 }
+
     it 'HPが最も低い敵を選ぶ' do
-      allow_any_instance_of(AttackService).to receive(:与えるダメージ).and_return(3)
       expect(チミに決めた！.なまえ).to eq 'メタルスライム'
     end
 
     context 'ワンキルできそうな敵がいる' do
+      let(:与ダメ予想値) { 20 }
+
       it 'その中から一番HPが高い敵を選ぶ' do
-        allow_any_instance_of(AttackService).to receive(:与えるダメージ).and_return(20)
         expect(チミに決めた！.なまえ).to eq 'スライムベス'
       end
     end
