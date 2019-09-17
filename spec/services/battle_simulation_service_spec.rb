@@ -53,7 +53,7 @@ RSpec.describe BattleSimulationService, type: :service do
     context 'ワンキルできそうな敵がいる' do
       let(:与ダメ予想値) { 20 }
 
-      it 'その中から一番HPが高い敵を選ぶ' do
+      it 'その中からHPが最も高い敵を選ぶ' do
         expect(チミに決めた！.なまえ).to eq 'スライムベス'
       end
     end
