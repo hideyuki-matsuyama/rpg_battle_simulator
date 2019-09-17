@@ -15,10 +15,32 @@ AllCops:
     - lib/tasks/**
     - spec/factories/**/*
     - vendor/bundle/**/*
+
+Metrics/AbcSize:
+  Max: 25
+Metrics/MethodLength:
+  Max: 25
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/factories/**/*'
+    - 'spec/**/*'
+
 Style/AsciiComments:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/RescueStandardError:
+  Exclude:
+    - 'spec/**/*'
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - 'spec/**/*'
+Lint/HandleExceptions:
+  Exclude:
+    - 'spec/**/*'
+
 Naming/AsciiIdentifiers:
   Enabled: false
 Naming/MethodName:
@@ -27,6 +49,11 @@ Naming/VariableNumber:
   Enabled: false
 Naming/VariableName:
   Enabled: false
+Naming/BinaryOperatorParameterName:
+  Enabled: false
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Enabled: false
 Rails/Output:
@@ -35,30 +62,11 @@ RSpec/MessageSpies:
   Enabled: false
 RSpec/ImplicitSubject:
   Enabled: false
-Style/IfUnlessModifier:
-  Enabled: false
-Metrics/AbcSize:
-  Max: 25
-Metrics/MethodLength:
-  Max: 25
 RSpec/AnyInstance:
   Enabled: false
 RSpec/ContextWording:
   Enabled: false
 RSpec/MessageChain:
   Enabled: false
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/factories/**/*'
-    - 'spec/**/*'
-Lint/HandleExceptions:
-  Exclude:
-    - 'spec/**/*'
-Style/RescueStandardError:
-  Exclude:
-    - 'spec/**/*'
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/**/*'
 RSpec/ExampleLength:
   Enabled: false

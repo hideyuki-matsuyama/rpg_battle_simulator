@@ -25,7 +25,7 @@
 class Adventurer < Creature
   scope :冒険者たち, -> { where('1 = 1') }
 
-  def いてっ！(other)
+  def いてっ！(被ダメ値)
     super
     raise Status::URRRAAHH, "#{なまえ}は しんでしまった！" if しぼんぬ？
   end

@@ -3,11 +3,9 @@ class BattleSimulationService < BaseService
   def call
     ActiveRecord::Base.transaction do
       エンカウント
-      すばやさ降順でソート.each do |する子|
-        される子 = (すばやさ降順でソート - パーティーメンバー - [する子]).sample
+      参加者.素早い順.each do |する子|
+        される子 = さあて、どいつからかたづけてやるかな・・・(する子)
         こうげき(する子, される子)
-        する子.save!
-        される子.save!
       end
     rescue ActiveRecord::RecordInvalid => e
       Rails.logger.fatal "あぼんした！: #{e.record.errors.full_messages}"
@@ -23,12 +21,20 @@ class BattleSimulationService < BaseService
     end
   end
 
-  def すばやさ降順でソート
-    みなさん.生きている.素早い順
+  def 参加者
+    みなさん.生きている
+  end
+
+  def さあて、どいつからかたづけてやるかな・・・(する子)
+    (参加者 - パーティーメンバー - [する子]).sample
   end
 
   def こうげき(する子, される子)
     AttackService.new(する子, される子).call
+  end
+
+  def みなさん
+    Creature.where(id: パーティーメンバー.ids + 現れたモンスターたち.ids)
   end
 
   def パーティーメンバー
@@ -37,9 +43,5 @@ class BattleSimulationService < BaseService
 
   def 現れたモンスターたち
     @現れたモンスターたち ||= Monster.この辺に生息している
-  end
-
-  def みなさん
-    Creature.where(id: パーティーメンバー.ids + 現れたモンスターたち.ids)
   end
 end
