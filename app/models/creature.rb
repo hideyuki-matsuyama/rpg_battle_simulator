@@ -40,8 +40,8 @@ class Creature < ApplicationRecord
   scope :生きている, -> { where(avoidance_power: 1..Float::INFINITY) }
   scope :素早い順, -> { order(agility: :desc, type: :desc) }
 
-  def いてっ！(other)
-    予測HP = self.HP - other
+  def いてっ！(被ダメ値)
+    予測HP = self.HP - 被ダメ値
     self.HP = 予測HP <= 0 ? 0 : 予測HP
   end
 
