@@ -26,7 +26,11 @@ class BattleSimulationService < BaseService
   end
 
   def さあて、どいつからかたづけてやるかな・・・(する子)
-    (参加者 - パーティーメンバー - [する子]).sample
+    敵たち = 参加者.where.not(type: する子.class)
+    ワンキル対象 = 敵たち.order(HP: :desc, id: :asc).detect do |敵|
+      敵.HP <= AttackService.new(する子, 敵).send(:与えるダメージ)
+    end
+    ワンキル対象 || 敵たち.order(:HP, :id).first
   end
 
   def こうげき(する子, される子)
