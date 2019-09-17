@@ -3,7 +3,7 @@ class BattleSimulationService < BaseService
   def call
     ActiveRecord::Base.transaction do
       エンカウント
-      参加者.素早い順.each do |する子|
+      みなさん.生きている.素早い順.each do |する子|
         される子 = さあて、どいつからかたづけてやるかな・・・(する子)
         こうげき(する子, される子)
       end
@@ -21,12 +21,8 @@ class BattleSimulationService < BaseService
     end
   end
 
-  def 参加者
-    みなさん.生きている
-  end
-
   def さあて、どいつからかたづけてやるかな・・・(する子)
-    敵たち = 参加者.where.not(type: する子.class)
+    敵たち = みなさん.生きている.where.not(type: する子.class)
     ワンキル対象 = 敵たち.order(HP: :desc, id: :asc).detect do |敵|
       敵.HP <= AttackService.new(する子, 敵).send(:与えるダメージ)
     end
