@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'ようこそ', type: :system do
+RSpec.describe 'ようこそ', type: :system do
   before { visit root_path }
 
   it '#index' do

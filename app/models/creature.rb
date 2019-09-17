@@ -37,8 +37,11 @@ class Creature < ApplicationRecord
   validates :HP, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: :さいだいHP }
   validates :MP, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: :さいだいMP }
 
-  def いてっ！(other)
-    予測HP = self.HP - other
+  scope :生きている, -> { where(avoidance_power: 1..Float::INFINITY) }
+  scope :素早い順, -> { order(agility: :desc, type: :desc) }
+
+  def いてっ！(被ダメ値)
+    予測HP = self.HP - 被ダメ値
     self.HP = 予測HP <= 0 ? 0 : 予測HP
   end
 

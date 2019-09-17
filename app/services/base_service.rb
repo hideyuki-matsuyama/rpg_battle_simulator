@@ -6,7 +6,7 @@ class BaseService
 
   private
 
-  def メッセージ出力(other)
-    Rails.logger.info other
+  def メッセージ出力(文言)
+    Rails.logger.info 文言
   end
 end

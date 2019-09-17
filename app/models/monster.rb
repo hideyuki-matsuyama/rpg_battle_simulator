@@ -23,7 +23,9 @@
 
 # モンスター
 class Monster < Creature
-  def いてっ！(other)
+  scope :この辺に生息している, -> { where('1 = 1') }
+
+  def いてっ！(被ダメ値)
     super
     raise Status::URRRAAHH, "#{なまえ}を たおした！" if しぼんぬ？
   end
