@@ -59,6 +59,8 @@ group :development do
 
   gem 'annotate'
   gem 'pre-commit'
+  gem 'rails-erd'
+  gem 'ruby-graphviz'
 end
 
 group :test do

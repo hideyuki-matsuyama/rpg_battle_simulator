@@ -1,0 +1,22 @@
+attributes:
+  - content
+  - foreign_key
+  - inheritance
+disconnected: false
+filename: db/erd
+filetype: pdf
+indirect: true
+inheritance: true
+markup: true
+notation: bachman
+orientation: vertical
+polymorphism: true
+sort: true
+warn: true
+title: RPG Battle Simulator ERD
+exclude: null
+only: null
+only_recursion_depth: null
+prepend_primary: false
+cluster: false
+splines: spline
