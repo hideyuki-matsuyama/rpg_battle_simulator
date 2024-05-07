@@ -27,4 +27,4 @@ bin/rspec -fd         # 仕様確認
 
 ## License
 
-MIT
+MIT.
