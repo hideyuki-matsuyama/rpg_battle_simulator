@@ -1,6 +1,9 @@
-# README
-
 <img alt="Build" src="https://github.com/hideyuki-matsuyama/rpg_battle_simulator/workflows/Build/badge.svg">
+
+# これは何？
+
+- ドラクエの戦闘ロジックを想像して Ruby で書いてみました
+- 日本語でも動くよね？ということで随所に日本語を用いています（AI にコードレンビューさせたら軒並み注意されましたが）
 
 ## 環境
 
