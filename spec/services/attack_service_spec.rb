@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AttackService, type: :service, issue: '#21' do
+RSpec.describe AttackService, issue: '#21', type: :service do
   describe '#call' do
     subject(:こうげき) { described_class.new(する子, される子).call }
 
@@ -15,6 +15,7 @@ RSpec.describe AttackService, type: :service, issue: '#21' do
     it '攻撃される子のHPが減る' do
       expect { こうげき }.to change(される子, :HP).from(100).to(10)
     end
+
     it '"〜に xxの ダメージ！！"のメッセージが出力される' do
       こうげきメッセ = 'ハッサンの こうげき！'
       しゅびメッセ = 'テリーに 90の ダメージ！！'
@@ -30,6 +31,7 @@ RSpec.describe AttackService, type: :service, issue: '#21' do
       it '攻撃される子のHPが変化しない' do
         expect { こうげき }.not_to change(される子, :HP)
       end
+
       it '"〜は ダメージを あたえられない！"のメッセージが出力される' do
         こうげきメッセ = 'メタルスライムの こうげき！'
         しゅびメッセ = 'ミレーユに ダメージを あたえられない！'

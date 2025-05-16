@@ -1,4 +1,4 @@
-Rails.logger = Logger.new(STDOUT) if ENV['STDOUT'].present?
+Rails.logger = Logger.new($stdout) if ENV['STDOUT'].present?
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe BaseService, type: :service, issue: '#10' do
+RSpec.describe BaseService, issue: '#10', type: :service do
   describe '#call' do
     subject(:サービス実行) { described_class.new.call }
 

@@ -9,21 +9,32 @@
 # Offense count: 3
 Style/Documentation:
   Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'app/helpers/application_helper.rb'
-    - 'app/models/application_record.rb'
-    - 'config/application.rb'
+    - "spec/**/*"
+    - "test/**/*"
+    - "app/helpers/application_helper.rb"
+    - "app/models/application_record.rb"
+    - "config/application.rb"
 
 # Offense count: 2
 Style/MixinUsage:
   Exclude:
-    - 'bin/setup'
-    - 'bin/update'
+    - "bin/setup"
+    - "bin/update"
 
 # Offense count: 29
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
-Metrics/LineLength:
+Layout/LineLength:
   Max: 130
+
+RSpec/VariableName:
+  Exclude:
+    - "spec/**/*"
+    - "test/**/*"
+    - "app/helpers/application_helper.rb"
+    - "app/models/application_record.rb"
+    - "config/application.rb"
+
+Lint/MissingSuper:
+  Enabled: false

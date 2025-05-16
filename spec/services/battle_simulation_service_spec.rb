@@ -29,7 +29,7 @@ RSpec.describe BattleSimulationService, type: :service do
     end
 
     it 'saveに失敗したらrollbackされる' do
-      expect_any_instance_of(Adventurer).to receive(:valid?).and_return false
+      allow_any_instance_of(Adventurer).to receive(:valid?).and_return false
       expect { begin たたかう; rescue; end }.not_to change { Creature.all.select(Creature.column_names).map(&:inspect) }
     end
   end

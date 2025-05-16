@@ -23,7 +23,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Creature, type: :model, issue: '#3' do
+RSpec.describe Creature, issue: '#3', type: :model do
   let(:サンチョ) { create(:adventurer, なまえ: 'サンチョ', HP: 50, さいだいHP: 50) }
 
   describe '#いてっ！' do
@@ -40,22 +40,22 @@ RSpec.describe Creature, type: :model, issue: '#3' do
   end
 
   describe '#いきてる？' do
-    it { expect(サンチョ.いきてる？).to eq true }
+    it { expect(サンチョ.いきてる？).to be true }
 
     context 'HP == 0' do
       before { サンチョ.HP = 0 }
 
-      it { expect(サンチョ.いきてる？).to eq false }
+      it { expect(サンチョ.いきてる？).to be false }
     end
   end
 
   describe '#しぼんぬ？' do
-    it { expect(サンチョ.しぼんぬ？).to eq false }
+    it { expect(サンチョ.しぼんぬ？).to be false }
 
     context 'HP == 0' do
       before { サンチョ.HP = 0 }
 
-      it { expect(サンチョ.しぼんぬ？).to eq true }
+      it { expect(サンチョ.しぼんぬ？).to be true }
     end
   end
 end

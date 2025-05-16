@@ -4,30 +4,38 @@ jobs:
   setup_and_test_execution:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: Setup Ruby version
-      uses: actions/setup-ruby@master
-      with:
-        version: 2.6.3
-    - name: Install dependent libralies
-      run: sudo apt-get install libmysqlclient-dev
-    - name: Setup bundler
-      run: gem install bundler
-    - name: bundle install
-      run: bundle install --jobs 4 --retry 3
-    - name: Setup Database
-      run: |
-        cp config/database.yml.ci config/database.yml
-        bundle exec rake db:create
-        bundle exec rake db:schema:load
-      env:
-        RAILS_ENV: test
+      - uses: actions/checkout@v4
+      - name: Setup Ruby version
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.4.3
+      - name: Install dependent libralies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev
+      - name: Clean bundle cache
+        run: |
+          rm -rf vendor/cache || true
+          rm -rf ~/.bundle/cache || true
+      - name: Remove Gemfile.lock
+        run: rm Gemfile.lock
+      - name: bundle install
+        run: bundle install --jobs 4 --retry 3
+      - name: Setup Database
+        run: |
+          sudo systemctl start mysql
+          sleep 5
+          cp config/database.yml.ci config/database.yml
+          bundle exec rake db:create
+          bundle exec rake db:schema:load
+        env:
+          RAILS_ENV: test
 
-    - name: Run RuboCop
-      run: bin/rails check:rubocop
+      - name: Run RuboCop
+        run: bin/rails check:rubocop
 
-    - name: Run Rails Best Practices
-      run: bin/rails check:rails_best_practices
+      - name: Run Rails Best Practices
+        run: bin/rails check:rails_best_practices
 
-    - name: Run RSpec
-      run: bin/rails check:rspec
+      - name: Run RSpec
+        run: bin/rails check:rspec

@@ -22,8 +22,8 @@ Metrics/MethodLength:
   Max: 25
 Metrics/BlockLength:
   Exclude:
-    - 'spec/factories/**/*'
-    - 'spec/**/*'
+    - "spec/factories/**/*"
+    - "spec/**/*"
 
 Style/AsciiComments:
   Enabled: false
@@ -33,13 +33,13 @@ Style/IfUnlessModifier:
   Enabled: false
 Style/RescueStandardError:
   Exclude:
-    - 'spec/**/*'
+    - "spec/**/*"
 Lint/AmbiguousBlockAssociation:
   Exclude:
-    - 'spec/**/*'
-Lint/HandleExceptions:
+    - "spec/**/*"
+Lint/SuppressedException:
   Exclude:
-    - 'spec/**/*'
+    - "spec/**/*"
 
 Naming/AsciiIdentifiers:
   Enabled: false
@@ -51,7 +51,7 @@ Naming/VariableName:
   Enabled: false
 Naming/BinaryOperatorParameterName:
   Enabled: false
-Naming/UncommunicativeMethodParamName:
+Naming/MethodParameterName:
   Enabled: false
 
 RSpec/MultipleExpectations:
