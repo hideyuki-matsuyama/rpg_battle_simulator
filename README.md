@@ -7,10 +7,10 @@
 
 ## 環境
 
-- ruby 2.6.3
-- Rails 5.2.3
-- RSpec 3.8
-- MySQL 5.7
+- ruby 3.4.3
+- Rails 8.0.2
+- RSpec 3.13.3
+- MySQL
 
 ## はじめかた
 
