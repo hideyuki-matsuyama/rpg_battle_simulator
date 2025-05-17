@@ -25,9 +25,16 @@ bin/rails check:all   # 全チェック
 bin/rspec -fd         # 仕様確認
 ```
 
-- System Specに失敗した際のスクリーンショットが `tmp/screenshots` に出力されます。
-- Code coverageの測定結果が `coverage/index.html` に出力されます。
+- System Spec に失敗した際のスクリーンショットが `tmp/screenshots` に出力されます。
+- Code coverage の測定結果が `coverage/index.html` に出力されます。
 
 ## License
 
 MIT.
+
+## Memo
+
+```sh
+# For mysql2 gem installing.
+export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix zstd)/lib/
+```
