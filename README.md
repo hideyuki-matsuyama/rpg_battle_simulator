@@ -35,6 +35,6 @@ MIT.
 ## Memo
 
 ```sh
-# For mysql2 gem installing.
+# For mysql2 gem installing(Apple M1 Ultra, macOS: Sequoia 15.5).
 export LIBRARY_PATH=$LIBRARY_PATH:$(brew --prefix zstd)/lib/
 ```
